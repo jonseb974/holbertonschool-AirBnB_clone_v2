@@ -18,7 +18,7 @@ app = Flask(__name__)
 def hello_HBNB():
     """Display a hello message"""
 
-    return "<p>Hello HBNB!</p>"
+    return "Hello HBNB!"
 
 
 if __name__ == '__main__':
