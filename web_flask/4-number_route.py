@@ -55,7 +55,7 @@ def number(n):
     """Display number"""
 
     n = int(n)
-    return "n is " + int(n)
+    return "n is a number" + int(n)
 
 
 if __name__ == "__main__":
