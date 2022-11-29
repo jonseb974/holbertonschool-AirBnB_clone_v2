@@ -43,6 +43,13 @@ def c(text):
     text = text.replace("_", " ")
     return "C " + text
 
+@app.route("/c/<text>", strict_slashes=False)
+def c(text="is cool"):
+    """Display C ” followed by the value of the text
+    using replace to supress "_".
+    """
+    text = text.replace("_", " ")
+    return "C " + text
 
 if __name__ == "__main__":
     # app.run(debug=True)
