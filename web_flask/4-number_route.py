@@ -28,17 +28,17 @@ def hello():
 
     return "Hello HBNB!"
 
+
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """Display hbnb"""
 
-
     return "HBNB"
+
 
 @app.route("/c/<text>", strict_slashes=False)
 def c(text):
     """Display c"""
-
 
     text = text.replace("_", " ")
     return "c " + text
@@ -46,12 +46,12 @@ def c(text):
 
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def python(text= "is cool"):
+def python(text="is cool"):
     """Display python"""
-
 
     text = text.replace("_", " ")
     return "python " + text
+
 
 @app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
