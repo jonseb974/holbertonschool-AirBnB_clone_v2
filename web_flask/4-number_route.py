@@ -32,11 +32,13 @@ def hello():
 def hbnb():
     """Display hbnb"""
 
+
     return "HBNB"
 
 @app.route("/c/<text>", strict_slashes=False)
 def c(text):
     """Display c"""
+
 
     text = text.replace("_", " ")
     return "c " + text
@@ -46,6 +48,7 @@ def c(text):
 @app.route("/python/<text>", strict_slashes=False)
 def python(text= "is cool"):
     """Display python"""
+
 
     text = text.replace("_", " ")
     return "python " + text
