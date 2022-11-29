@@ -21,6 +21,7 @@ You must use the option strict_slashes=False in your route definition
 
 from flask import Flask
 from flask import render_template
+
 app = Flask(__name__)
 
 
@@ -46,7 +47,7 @@ def c(text):
     """
     text = text.replace("_", " ")
 
-    return "C " + text
+    return "C {}" .format(text)
 
 
 @app.route("/python", strict_slashes=False)
@@ -65,7 +66,7 @@ def number(n):
     """Display n is a  number
     only if n is an integer
     """
-    return int(n)
+    return "{} is a number".format(n)
 
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
