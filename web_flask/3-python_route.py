@@ -32,24 +32,21 @@ def hbnb():
 
     return "HBNB"
 
+
 @app.route("/c/<text>", strict_slashes=False)
-
-
 def c(text):
-    """ display “C ”, followed by"""
+    """ Display “C ”, followed by"""
 
     text = text.replace("_", " ")
     return "C " + text
 
+
 @app.route("/python", strict_slashes=False)
-
-
 @app.route("/python/<text>", strict_slashes=False)
 def python(text="is cool"):
     """ Display “Python ”, followed by text value
     replace underscore _ symbols with space.
     """
-
     text = text.replace("_", " ")
 
     return "Python " + text
