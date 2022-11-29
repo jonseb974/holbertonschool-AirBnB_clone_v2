@@ -17,15 +17,16 @@ The default value of text is “is cool”
 You must use the option strict_slashes=False in your route definition
 """
 from flask import Flask
+from flask import abort
 
 app = Flask(__name__)
+
 
 @app.route("/", strict_slashes=False)
 def hello():
     """Display hello message"""
 
     return "Hello HBNB!"
-
 
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
@@ -40,6 +41,8 @@ def c(text):
     text = text.replace("_", " ")
     return "c " + text
 
+
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python(text= "is cool"):
     """Display python"""
@@ -47,7 +50,7 @@ def python(text= "is cool"):
     text = text.replace("_", " ")
     return "python " + text
 
-@app.route("/number/<n>", strict_slashes=False)
+@app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
     """Display number"""
 
@@ -56,4 +59,4 @@ def number(n):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0')
