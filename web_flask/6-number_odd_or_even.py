@@ -25,6 +25,8 @@ from flask import Flask
 from flask import render_template
 
 app = Flask(__name__)
+app.jinja_env.trim_block = True
+app.jinja_env.lstrip_blocks = True
 
 
 @app.route("/", strict_slashes=False)
@@ -50,9 +52,9 @@ def c(text):
 
     return "C {}" .format(text)
 
-
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def python(text):
+def python(text="is cool"):
     """Display message Python
     followed by the value of the text variable
     replace underscore _ symbols with a space
@@ -62,13 +64,13 @@ def python(text):
     return "Python {}".format(text)
 
 
-@app.route("/number/<n>", strict_slashes=False)
-def number(text="is cool"):
+@app.route("/number/<int:n>", strict_slashes=False)
+def number_template(n):
     """Display message Number: n is a number
     display “n is a number” only if n is an integer
     """
 
-    return "Number: {}".format(text)
+    return "{} is number".format(n)
 
 
 @app.route("/number_template/<n>", strict_slashes=False)
@@ -77,4 +79,17 @@ def number_template(text="is cool"):
     display a HTML page only if n is an integer:
     """
 
-    return render_template("number_template.html", text=text)
+    return render_template("5-number.html", n=n)
+
+
+@app.route("/number_odd_or_even/<n>", strict_slashes=False)
+def number_odd_or_even(n):
+    """Display message Number: n is a number
+    display a HTML page only if n is an integer:
+    """
+
+    return render_template("6-number_odd_or_even.html", n=n)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
