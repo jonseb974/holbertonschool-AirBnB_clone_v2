@@ -59,7 +59,7 @@ def python(text="is cool"):
     """
     text = text.replace("_", " ")
 
-    return "python " + text
+    return "Python {}".format(text)
 
 @app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
