@@ -40,12 +40,15 @@ def c(text):
     return "C " + text
 
 @app.route("/python/<text>", strict_slashes=False)
-def python(text):
+def python(text="is cool"):
     """ Display “Python ”, followed by text value
     replace underscore _ symbols with space.
     """
 
-    text = text.replace("_"," ")
+    text = text.replace("_", " ")
 
     return "Python " + text
 
+if __name__ == "__main__":
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
