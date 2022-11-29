@@ -73,8 +73,8 @@ def number_template(n):
     return "{} is number".format(n)
 
 
-@app.route("/number_template/<n>", strict_slashes=False)
-def number_template(text="is cool"):
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def number_template(n):
     """Display message Number: n is a number
     display a HTML page only if n is an integer:
     """
@@ -82,7 +82,7 @@ def number_template(text="is cool"):
     return render_template("5-number.html", n=n)
 
 
-@app.route("/number_odd_or_even/<n>", strict_slashes=False)
+@app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def number_odd_or_even(n):
     """Display message Number: n is a number
     display a HTML page only if n is an integer:
