@@ -11,6 +11,11 @@ class FileStorage:
     def __init__(self):
         self.__objects={}
 
+
+    def close(self):
+        """Call the reload() method"""
+        self.reload()
+
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         if (cls is None):
