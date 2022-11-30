@@ -31,7 +31,7 @@ app.jinja_env.lstrip_blocks = True
 
 
 @app.route("/", strict_slashes=False)
-def index():
+def hello():
     """Display message Hello HBNB"""
 
     return "Hello HBNB !"
@@ -62,34 +62,30 @@ def python(text="is cool"):
     replace underscore _ symbols with a space
     """
     text = text.replace("_", " ")
-
     return "Python {}".format(text)
 
 
 @app.route("/number/<int:n>", strict_slashes=False)
-def number_template(n):
+def number(n):
     """Display message Number: n is a number
     display “n is a number” only if n is an integer
     """
-
     return "{} is number".format(n)
 
 
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
-    """Display message Number: n is a number
+    """Display n is a number
     display a HTML page only if n is an integer
     """
-
     return render_template("5-number.html", n=n)
 
 
 @app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def number_odd_or_even(n):
-    """Display message Number: n is a number
-    display a HTML page only if n is an integer
+    """Display a HTML page only if n is an integer
+    if n is even |odd inside the body
     """
-
     return render_template("6-number_odd_or_even.html", n=n)
 
 
