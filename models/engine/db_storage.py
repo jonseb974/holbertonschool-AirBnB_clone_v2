@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """This module defines a class to manage database storage for hbnb clone"""
-import MySQLdb
 from sqlalchemy.orm import sessionmaker
 from models.base_model import BaseModel, Base
 from models.city import City
