@@ -5,9 +5,11 @@ from os import getenv
 from models.base_model import BaseModel
 from models.base_model import Base
 from models.city import City
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship, backref
-#from sqlalchemy.orm import relationship
+from sqlalchemy import Column
+#from sqlalchemy import Integer
+from sqlalchemy import String #ForeignKey
+from sqlalchemy.orm import relationship
+
 
 
 class State(BaseModel, Base):
