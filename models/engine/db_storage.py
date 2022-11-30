@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module defines a class to manage database storage for hbnb clone"""
-
+import MySQLdb
 from sqlalchemy.orm import sessionmaker
 from models.base_model import BaseModel, Base
 from models.city import City
@@ -8,7 +8,8 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
-from sqlalchemy import (create_engine)
+from models.amenity import Amenity
+from sqlalchemy import create_engine
 import os
 
 class DBStorage:
@@ -51,5 +52,5 @@ class DBStorage:
 
     def close(self):
         """Close the session"""
-        self.session.close()
+        self.__session.close()
 
