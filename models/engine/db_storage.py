@@ -49,3 +49,7 @@ class DBStorage:
         self.__session = Session()
         Base.metadata.create_all(self.__engine)
 
+    def close(self):
+        """Close the session"""
+        self.session.close()
+
