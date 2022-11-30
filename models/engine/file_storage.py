@@ -1,13 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class to manage file storage for hbnb clone"""
 import json
-from models.base_model  import BaseModel
-from models.amenity import Amenity
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
+
 
 
 class FileStorage:
@@ -18,10 +12,6 @@ class FileStorage:
     def __init__(self):
         """Create self"""
         self.__objects={}
-
-    def close(self):
-        """Call the reload() method"""
-        self.reload()
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
@@ -78,3 +68,7 @@ class FileStorage:
                     self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
+    def close(self):
+        """Call the reload() method"""
+        self.reload()
