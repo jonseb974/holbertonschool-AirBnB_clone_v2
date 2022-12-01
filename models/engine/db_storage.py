@@ -24,7 +24,7 @@ class DBStorage:
         database = os.getenv('HBNB_MYSQL_DB')
         password = os.getenv('HBNB_MYSQL_PWD')
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(
-            username, host, database), pool_pre_ping=True)
+            username, host,password, database), pool_pre_ping=True)
         if os.getenv('HBNB_ENV') == "test":
             Base.metadata.drop_all(self.engine)
 
@@ -51,7 +51,8 @@ class DBStorage:
 
     def new(self, obj):
         """add new object"""
-        self.__session.add(obj)
+        if obj:
+            self.__session.add(obj)
 
     def save(self):
         """save database"""
