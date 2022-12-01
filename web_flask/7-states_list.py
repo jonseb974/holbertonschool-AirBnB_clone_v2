@@ -14,7 +14,8 @@ app = Flask(__name__)
 
 @app.route("/states_list", strict_slashes=False)
 def states_list():
-    """Display htmlt pahe
+    """Display html page
+    with list of states.
     States are stored by name
     """
     states = storage.all("State")
