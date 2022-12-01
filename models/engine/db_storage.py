@@ -11,7 +11,7 @@ from models.user import User
 from models.amenity import Amenity
 from sqlalchemy import create_engine
 import os
-from os import getenv
+import json
 
 class DBStorage:
     __engine = None
