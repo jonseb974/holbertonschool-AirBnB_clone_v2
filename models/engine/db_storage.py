@@ -12,6 +12,7 @@ from models.state import State
 from models.user import User
 from models.amenity import Amenity
 
+
 class DBStorage:
     """Represent a database storage engine"""
     __engine = None
@@ -20,11 +21,11 @@ class DBStorage:
     def __init__(self):
         """init the engine"""
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                    format(getenv('HBNB_MYSQL_USER'),
-                           getenv('HBNB_MYSQL_HOST'),
-                           getenv('HBNB_MYSQL_DB'),
-                           getenv('HBNB_MYSQL_PWD')),
-                        pool_pre_ping=True)
+                                      format(getenv('HBNB_MYSQL_USER'),
+                                             getenv('HBNB_MYSQL_HOST'),
+                                             getenv('HBNB_MYSQL_DB'),
+                                             getenv('HBNB_MYSQL_PWD')),
+                                      pool_pre_ping=True)
         if getenv('HBNB_ENV') == "test":
             Base.metadata.drop_all(self.engine)
 
@@ -42,7 +43,7 @@ class DBStorage:
             if type(cls) == str:
                 cls = eval(cls)
             objs = self.__session.query(cls)
-        return {"{}.{}".format(type(o).__name__,o.id):o for o in objs}
+        return {"{}.{}".format(type(o).__name__, o.id): o for o in objs}
 
     def new(self, obj):
         """add new object"""
@@ -61,7 +62,8 @@ class DBStorage:
     def reload(self):
         """reload database"""
         Base.metadata.create_all(self.__engine)
-        Session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session_factory = sessionmaker(bind=self.__engine,
+                                       expire_on_commit=False)
         Session = scoped_session(Session_factory)
         self.__session = Session()
 
