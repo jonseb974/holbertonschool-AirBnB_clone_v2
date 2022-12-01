@@ -33,7 +33,7 @@ class DBStorage:
         classes = {
             'BaseModel': BaseModel, 'User': User, 'Place': Place,
             'State': State, 'City': City, 'Amenity': Amenity,
-            'Review': Review, 'Base': Base
+            'Review': Review
         }
         result = {}
         if cls is classes:
