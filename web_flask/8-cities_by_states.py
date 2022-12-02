@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Flask web application
+"""Start flask web application.
 web application must be listening on 0.0.0.0, port 5000
 Routes:
     /cities_by_states;
@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route("/cities_by_states", strict_slashes=Flask)
 def cities_by_states():
     """Display HTML page
-    Staes/cities are stored.
+    States/cities are stored by name.
     """
 
     states = storage.all("State")
