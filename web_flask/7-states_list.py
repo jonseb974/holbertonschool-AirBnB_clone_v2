@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Script that starts a Flask web application:
-
 Web application must be listening on 0.0.0.0, port 5000
 Routes:
-    /states_list: display a HTML page: (inside the tag BODY)
+    /states_list: display a HTML page
 """
 from models import storage
 from flask import Flask
@@ -14,8 +13,7 @@ app = Flask(__name__)
 
 @app.route("/states_list", strict_slashes=False)
 def states_list():
-    """Display html page
-    with list of states.
+    """Display html page with list of states.
     States are stored by name
     """
     states = storage.all("State")
